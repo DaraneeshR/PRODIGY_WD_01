@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Landing Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  nav li {
+    margin: 0 15px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #ff7f50;
+  }
+  .section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 36px;
+    padding: 20px;
+  }
+  .section:nth-child(odd) {
+    background-color: #f4f4f4;
+  }
+  .section:nth-child(even) {
+    background-color: #e0e0e0;
+  }
+  .center {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 18px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  input, textarea, button {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #ff7f50;
+  }
+  #successMessage {
+    color: green;
+  }
+</style>
+</head>
+<body>
+<nav id="main-menu">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#reservations">Reservations</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="section">
+  <div class="center">
+    <h1>Welcome to Our Restaurant</h1>
+    <p>Enjoy an unforgettable dining experience with us.</p>
+  </div>
+</section>
+
+<section id="menu" class="section">
+  <div class="center">
+    <h1>Our Menu</h1>
+    <p>Explore our delicious offerings crafted by expert chefs.</p>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="center">
+    <h1>About Us</h1>
+    <p>Learn more about our story and values.</p>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="center">
+    <h1>Contact Us</h1>
+    <p>Feel free to reach out to us with any inquiries.</p>
+    <p>Email: <span style="color: blue;">info@restaurant.com</span></p>
+    <p>Phone: <span style="color: blue;">+123 456 7890</span></p>
+  </div>
+</section>
+
+<section id="reservations" class="section">
+  <div class="center">
+    <h1>Reservations</h1>
+    <form id="reservationForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" required>
+      <button type="submit">Reserve Now</button>
+      <p id="successMessage" style="display: none;">Reservation successful!</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.getElementById('reservationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    document.getElementById('successMessage').style.display = 'block';
+    document.getElementById('reservationForm').reset();
+  });
+
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('main-menu');
+    if (window.scrollY > 50) {
+      nav.style.backgroundColor = '#222';
+    } else {
+      nav.style.backgroundColor = '#333';
+    }
+  });
+</script>
+</body>
+</html>
